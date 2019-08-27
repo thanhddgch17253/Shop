@@ -9,12 +9,5 @@ else
 {
     echo"done";
 }
-if(!$dbconn3)
-{
-    echo "fail";
-}
-else
-{
-    echo "ok";
-}
+
 ?>
