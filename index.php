@@ -19,8 +19,8 @@
 
 <body> 
 <div class="login">
-            <a href="login1.php"><button class="btn">Login For Serior Staff</button></a>
-            <a href="connect.php"><button class="btn">Login For Store</button></a>
+
+            <a href="login2.php"><button class="btn">Login For Staff</button></a>
   </div>
 
 

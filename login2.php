@@ -102,7 +102,7 @@ session_start();
             color: red;
             text-align: center;
             font-size: 40px;
-            
+
         }
 
         /* Change styles for span and cancel button on extra small screens */
@@ -121,11 +121,12 @@ session_start();
 
 <body>
     <header>
-        <h2 class="textlog">Login For Staff</h2>
 
-        <form action="login1.php" method="POST">
+        <h2 class="textlog">Login For Staff </h2>
+
+        <form action="login2.php" method="POST">
             <div class="imgcontainer">
-                <img src="https://www.saga.vn/uploads/thumbnail%20300x300/CIO.png" alt="Avatar" class="avatar">
+                <img src="http://decal.com.vn/vnt_upload/recruitment/icon-18.png" alt="Avatar" class="avatar">
             </div>
 
             <div class="container">
@@ -167,7 +168,7 @@ if (!isset($_POST['login'])) { } else {
     $count = $stmt->rowCount();
     if ($count > 0) {
         $_SESSION['username'] = $_POST['username'];
-        echo '<script language="javascript">alert("Login sucessfully"); window.location="Seniorstaff.php";</script>';
+        echo '<script language="javascript">alert("Login sucessfully"); window.location="Store.php";</script>';
     } else {
         echo '<script language="javascript">alert("Uesername or password incorrect");</script>';
     }
