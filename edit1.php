@@ -14,4 +14,3 @@
      {
         echo'<script language="javascript">alert("Edit fail");</script>';
      }
-?>  

@@ -1,12 +1,12 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['username']))
-    {
-        header("Location: index.php");
-    }
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,15 +16,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
-         table{
-            boder:1px;
+        table {
+            boder: 1px;
         }
-        body{
+
+        body {
             background-color: rgb(139, 141, 165);
         }
     </style>
     <title>Serior Staff</title>
 </head>
+
 <body>
 
     <header>
@@ -37,24 +39,25 @@
         <th>Password</th>
         <th>Address</th>
         <?php
-            require_once "connect.php";
-            $sql = "select * from store";
-            $stmt = $pdo->prepare($sql);
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $stmt->execute();
-            $result = $stmt->fetchAll();
+        require_once "connect.php";
+        $sql = "select * from store";
+        $stmt = $pdo->prepare($sql);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
         ?>
-        <?php 
-            foreach($result as $row){
-                echo "<tr>";
-                echo "<td>".$row['id']."</td>";
-                echo "<td>".$row['usernamestore']."</td>";
-                echo "<td>".$row['pass']."</td>";
-                echo "<td>".$row['addres']."</td>";
-                echo "<td><a href=\"editstore.php?id=$row[id]\">Edit</a> | <a href=\"deletestore.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
-                echo "</tr>";
-            }
+        <?php
+        foreach ($result as $row) {
+            echo "<tr>";
+            echo "<td>" . $row['id'] . "</td>";
+            echo "<td>" . $row['usernamestore'] . "</td>";
+            echo "<td>" . $row['pass'] . "</td>";
+            echo "<td>" . $row['addres'] . "</td>";
+            echo "<td><a href=\"editstore.php?id=$row[id]\">Edit</a> | <a href=\"deletestore.php?id=$row[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
+            echo "</tr>";
+        }
         ?>
     </table>
 </body>
+
 </html>

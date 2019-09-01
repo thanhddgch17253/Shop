@@ -91,7 +91,7 @@ if (!isset($_SESSION['username'])) {
                 echo "<td>" . $row['customer'] . "</td>";
                 echo "<td>" . $row['csphone'] . "</td>";
                 echo "<td>" . $row['product'] . "</td>";
-                echo "<td>" . $row['price'] . "</td>"; 
+                echo "<td>" . $row['price'] . "</td>";
                 echo "<td>" . $row['dateb'] . "</td>";
                 echo "<td>" . $row['store'] . "</td>";
             }

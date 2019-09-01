@@ -1,12 +1,12 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['username']))
-    {
-        header("Location: index.php");
-    }
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,22 +22,24 @@
             font-size: 450%;
             color: rgb(202, 103, 115);
         }
-        
+
         form {
             margin-top: 10%;
             margin-left: 30%;
             margin-right: 30%;
             color: rgb(255, 63, 78);
         }
-        
+
         .login {
             margin-left: 20%;
         }
-        body{
+
+        body {
             background-color: rgb(139, 141, 165);
         }
     </style>
 </head>
+
 <body>
     <header>
         <p style="color:white; font-size:30px;">Hi <?php echo ($_SESSION['username']); ?></p>
@@ -51,30 +53,26 @@
             <label for="pwd" class="mr-sm-2">Password:</label>
             <input type="password" class="form-control mb-2 mr-sm-2" id="pwd" name="pass" placeholder="Enter your password" required>
             <label for="store">Adress</label>
-            <input type="text" name="store"  class="form-control mb-2 mr-sm-2" placeholder="Enter store's address" required>
-            <div class ="login">
-            <input type="submit" class="btn btn-success login" value="Create" name="create">
+            <input type="text" name="store" class="form-control mb-2 mr-sm-2" placeholder="Enter store's address" required>
+            <div class="login">
+                <input type="submit" class="btn btn-success login" value="Create" name="create">
         </form>
     </div>
     <?php
-        require_once "connect.php";
-        if(!isset($_POST['create']))
-        {
-            
-        }
-        else
-        {
-            $username = $_POST['username'];
-            $pass = $_POST['pass'];
-            $store = $_POST['store'];
-            $sql = "Insert Into store(usernamestore, pass, addres) values(:username, :pass, :addres)";
-            $query = $pdo->prepare($sql);
-            $query->bindparam(':username', $username);
-            $query->bindparam(':pass', $pass);
-            $query->bindparam(':addres', $store);
-            $query->execute();
-            echo'<script language="javascript">alert("Create account sucessfully")</script>';
-        }
+    require_once "connect.php";
+    if (!isset($_POST['create'])) { } else {
+        $username = $_POST['username'];
+        $pass = $_POST['pass'];
+        $store = $_POST['store'];
+        $sql = "Insert Into store(usernamestore, pass, addres) values(:username, :pass, :addres)";
+        $query = $pdo->prepare($sql);
+        $query->bindparam(':username', $username);
+        $query->bindparam(':pass', $pass);
+        $query->bindparam(':addres', $store);
+        $query->execute();
+        echo '<script language="javascript">alert("Create account sucessfully")</script>';
+    }
     ?>
 </body>
+
 </html>

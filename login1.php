@@ -97,12 +97,13 @@ session_start();
             float: right;
             padding-top: 16px;
         }
-        .textlog{
+
+        .textlog {
             font-family: Comic Sans MS;
             color: red;
             text-align: center;
             font-size: 40px;
-            
+
         }
 
         /* Change styles for span and cancel button on extra small screens */
@@ -158,12 +159,12 @@ if (!isset($_POST['login'])) { } else {
     $sql = "SELECT * FROM manage where username = :username and pass = :pass";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(
-            array(
-                'username' => $_POST['username'],
-                'pass' => $_POST['pass'],
+        array(
+            'username' => $_POST['username'],
+            'pass' => $_POST['pass'],
 
-            )
-        );
+        )
+    );
     $count = $stmt->rowCount();
     if ($count > 0) {
         $_SESSION['username'] = $_POST['username'];
